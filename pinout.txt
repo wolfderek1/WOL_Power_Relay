@@ -1,0 +1,90 @@
+ESP32-S3N16R8 Power Hub - Physical Connections
+================================================
+
+Hardware: ESP32-S3 DevKit-C (16MB Flash, 8MB PSRAM)
+Network: 192.168.1.110 (Static IP)
+Web Interface: Matrix-themed hacker aesthetic
+
+GPIO ASSIGNMENTS:
+================
+
+Status LEDs (WS2812B Addressable RGB):
+--------------------------------------
+GPIO 4  -> PC1 Status LED (WS2812B)
+        -> LED Data In (DIN)
+        -> LED VCC -> 5V (or 3.3V)
+        -> LED GND -> GND
+
+GPIO 5  -> PC2 Status LED (WS2812B) 
+        -> LED Data In (DIN)
+        -> LED VCC -> 5V (or 3.3V)
+        -> LED GND -> GND
+
+GPIO 18 -> WiFi Status LED (WS2812B)
+        -> LED Data In (DIN)
+        -> LED VCC -> 5V (or 3.3V)
+        -> LED GND -> GND
+
+Note: Each WS2812B LED is individually addressable
+- Can display any RGB color (16.7 million colors)
+- Built-in controller chip
+- Only requires 1 data pin per LED
+- 5V power recommended for best brightness
+- 3.3V data signal compatible
+
+Power Control:
+-------------
+GPIO 2  -> PC2 Relay Control
+        -> Relay Module IN pin
+        -> Relay Module VCC -> 3.3V
+        -> Relay Module GND -> GND
+        -> Relay NO/NC -> PC Power Switch pins
+
+Power Supply:
+------------
+ESP32 VIN -> 5V (USB or external)
+ESP32 GND -> Ground (common ground with all components)
+ESP32 3.3V -> Power for relay module (if 3.3V compatible)
+
+NETWORK CONFIGURATION:
+=====================
+SSID: "Rebellious Amish Family"
+Password: "HenryOzzy423"
+IP: 192.168.1.110 (auto-assigned)
+Broadcast: 192.168.1.255 (auto-detected)
+
+TARGET DEVICES:
+==============
+PC1 (Wake-on-LAN):
+- MAC Address: 9c:6b:00:96:b2:aa
+- IP Address: 192.168.1.169 (for status monitoring)
+- Protocol: Magic Packet over UDP port 9
+- Status: GPIO 4 LED indicator
+- LED Colors: 🟢 Green = Online/Ready, 🔴 Red = Offline, 🔵 Blue = Sending WoL
+
+PC2 (Hardware Relay):
+- IP Address: 192.168.1.170 (for status monitoring)
+- Control: GPIO 2 relay output
+- Status: GPIO 5 LED indicator
+- Method: Physical power button simulation
+- LED Colors: 🟢 Green = Online, 🔴 Red = Offline, 🟡 Yellow = Operation in progress
+
+WEB INTERFACE:
+=============
+URL: http://192.168.1.110
+Theme: Matrix hacker aesthetic with cascading green characters
+OTA Updates: http://192.168.1.110/update
+Features: 
+- Wake-on-LAN for PC1
+- Hardware relay control for PC2
+- Real-time status LEDs
+- Matrix rain animation overlay
+
+PERFORMANCE SETTINGS:
+====================
+CPU Frequency: 240MHz
+Flash Mode: QIO
+Flash Size: 16MB
+Partition Scheme: Huge App (3MB)
+PSRAM: Enabled (8MB)
+Upload Speed: 921600 baud

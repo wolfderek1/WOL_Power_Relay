@@ -1,0 +1,9 @@
+{
+  "additionalFiles": "..\\..\\..",
+  "compiler.optimization_flags": "-Os",
+  "customBuildProperties": "",
+  "fqbn": "esp32:esp32:esp32s3:CDCOnBoot=cdc",
+  "hardwareFolders": "C:\\Users\\Wawtor\\AppData\\Local\\Arduino15\\packages",
+  "otherLibrariesFolders": "C:\\Users\\Wawtor\\Documents\\Arduino\\libraries",
+  "sketchLocation": "D:\\App Projects\\WOL and Power relay\\ESP32_Power_Hub"
+}

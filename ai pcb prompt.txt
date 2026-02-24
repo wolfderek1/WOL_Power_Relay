@@ -1,0 +1,14 @@
+I need a PCB design for an ESP32 device with a 2.8" ILI9341 touchscreen display. The board should connect an ESP32-WROOM-32 module to the display via SPI. 
+
+Main connections needed:
+- ESP32 GPIO23 to display MOSI
+- ESP32 GPIO19 to display MISO  
+- ESP32 GPIO18 to display SCLK
+- ESP32 GPIO15 to display CS
+- ESP32 GPIO2 to display DC
+- ESP32 GPIO4 to display RST
+- ESP32 GPIO21 to touch CS
+
+Include USB-C connector for power and programming with auto-reset circuit. Add a 3.3V regulator (AMS1117) to power everything from 5V USB. The board should be compact, about 60x85mm, with mounting holes in the corners.
+
+Add a power LED and include proper decoupling capacitors near the ESP32. Make it a simple 2-layer board suitable for hobby PCB manufacturing.
